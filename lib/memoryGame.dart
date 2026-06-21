@@ -7,6 +7,9 @@ class MemoryGame extends FlameGame {
   final int level;
 
   MemoryGame(this.level);
+
+  var selectedCard = null;
+  var pairsLeft = 0;
   
   @override
   Future<void> onLoad() async {
