@@ -1,3 +1,4 @@
+import '../widgets/winPopup.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import '../memoryGame.dart';
@@ -12,6 +13,16 @@ class GameScreen extends StatelessWidget {
     return(
       GameWidget(
         game: MemoryGame(level),
+        overlayBuilderMap: {
+          "win": (context, game) {
+            final g = game as MemoryGame;
+
+            return WinPopup(
+              correct: g.correctGuesses,
+              wrong: g.wrongGuesses,
+            );
+          }
+        },
       )
     );
   }

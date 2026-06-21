@@ -9,11 +9,14 @@ class MemoryGame extends FlameGame {
   MemoryGame(this.level);
 
   var selectedCard = null;
+  var correctGuesses = 0;
+  var wrongGuesses = 0;
   var pairsLeft = 0;
   
   @override
   Future<void> onLoad() async {
     late final World world;
+    resetLevel();
 
     switch(level) {
       case 1:
@@ -35,5 +38,11 @@ class MemoryGame extends FlameGame {
 
     await add(world);
     await add(camera);
+  }
+
+  void resetLevel() {
+    selectedCard == null;
+    correctGuesses = 0;
+    wrongGuesses = 0;
   }
 }

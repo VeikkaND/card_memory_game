@@ -44,10 +44,12 @@ class Card extends RectangleComponent
         found = true;
         gameRef.selectedCard.found = true;
         gameRef.pairsLeft -= 1;
+        gameRef.correctGuesses++;
       } else { // wrong card selected
         await Future.delayed(const Duration(seconds: 1));
         flip();
         gameRef.selectedCard.flip();
+        gameRef.wrongGuesses++;
       }
       gameRef.selectedCard = null; // reset selected card
     }
