@@ -29,9 +29,10 @@ class LevelScreen extends StatelessWidget {
             LevelButton(level: 3),
             Padding(
               padding: EdgeInsets.only(top: 40),
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 onPressed: () => levelController.resetLevels(), 
-                child: Text("Reset levels")
+                icon: Icon(Icons.refresh),
+                label: Text("Reset levels")
               )
             )
           ],

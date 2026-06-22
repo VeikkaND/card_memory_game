@@ -17,6 +17,8 @@ class MemoryGame extends FlameGame {
   var pairsLeft = 0;
   var gameFinished = false;
   
+  var controlsDisabled = false;
+  
   @override
   Future<void> onLoad() async {
     late final World world;

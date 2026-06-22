@@ -29,7 +29,7 @@ class Card extends RectangleComponent
 
   @override
   void onTapDown(TapDownEvent event) async {
-    if(found || isFlipping) {
+    if(found || isFlipping || gameRef.controlsDisabled) {
       return;
     }
     print("clicked $number");
@@ -46,15 +46,18 @@ class Card extends RectangleComponent
         gameRef.pairsLeft -= 1;
         gameRef.correctGuesses++;
       } else { // wrong card selected
+        gameRef.controlsDisabled = true;
         await Future.delayed(const Duration(seconds: 1));
         flip();
         gameRef.selectedCard.flip();
         gameRef.wrongGuesses++;
+        gameRef.controlsDisabled = false;
       }
       gameRef.selectedCard = null; // reset selected card
     }
   }
 
+  /*
   // show pairs on the back of cards
   @override
   Future<void> onLoad() async {
@@ -71,6 +74,7 @@ class Card extends RectangleComponent
       )
     );
   }
+  */
 
   Future<void> flip() async {
     isFlipping = true;
