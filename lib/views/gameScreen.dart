@@ -2,6 +2,7 @@ import '../widgets/winPopup.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import '../memoryGame.dart';
+import '../widgets/CustomScaffold.dart';
 
 class GameScreen extends StatelessWidget {
   final int level;

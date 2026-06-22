@@ -13,6 +13,12 @@ Future<void> main() async {
 
   runApp(
     GetMaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blue,
+            brightness: Brightness.dark
+          )
+      ),
       home: StartScreen()
     )
   );

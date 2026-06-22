@@ -1,6 +1,8 @@
 import '../views/levelScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../widgets/CustomScaffold.dart';
+import '../breakpoints.dart';
 
 class ResultScreen extends StatelessWidget {
   final int correct;
@@ -10,16 +12,33 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return(
-      Scaffold(
-        body: Column(
+      CustomScaffold(
+        child: Column(
           children: [
-            Text("Level statistics:"),
-            Text("Correct guesses: $correct"),
-            Text("Wrong guesses: $wrong"),
-            ElevatedButton(
-              onPressed: () => Get.to(LevelScreen()),
-              child: const Text("Back to level selection")
+            Text(
+              "Level statistics:",
+              style: TextStyle(fontSize: width > Breakpoints.phone
+                ? 40.0
+                : 25.0
+              )
+            ),
+            Text(
+              "Correct guesses: $correct",
+              style: TextStyle(fontSize: 20.0)
+            ),
+            Text(
+              "Wrong guesses: $wrong",
+              style: TextStyle(fontSize: 20.0)
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: ElevatedButton(
+                onPressed: () => Get.to(LevelScreen()),
+                child: const Text("Back to level selection")
+              )
             )
           ],
         ),
