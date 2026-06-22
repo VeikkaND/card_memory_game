@@ -1,17 +1,23 @@
-# card_memory_game
+# Card memory game
 
-A new Flutter project.
+Second course project of the course **Device-Agnostic Design with Flutter and Dart**
 
-## Getting Started
+## Project description
 
-This project is a starting point for a Flutter application.
+This project was built for the aforementioned course using Flutter and Dart, and the [Flame Engine](https://flame-engine.org/).
 
-A few resources to get you started if this is your first Flutter project:
+The application is a game, where the goal is to solve a card memory puzzle game. 
+The game includes 3 different levels with increasing amounts of randomly generated cards.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+All completed levels are saved in persistent storage. 
+The game also includes a breakpoint for phones, which affects font sizes. The game itself is also creted using the CameraComponent's withFixedResolution constructor, which scales the game on smaller devices. 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instructions 
+
+The game starts at the home screen, where the player can navigate to the level **selection screen**
+* Levels can be chosen by clicking on the level n -buttons
+* Already completed levels can be reset using the *Reset levels* -button
+
+After selecting a level, the player is directed into the **game screen**
+* The goal is to find matching pairs of cards *(cards with the same color)*
+* Once all pairs have been found, the player is shown a completion popup, from which, the player can navigate to the **result screen**, where statistics about the completed level are shown.
