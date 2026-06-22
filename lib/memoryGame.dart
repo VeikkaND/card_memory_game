@@ -27,10 +27,10 @@ class MemoryGame extends FlameGame {
         world = Level1();
         break;
       case 2:
-        world = Level1();
+        world = Level2();
         break;
       case 3:
-        world = Level1();
+        world = Level3();
         break;
     }
 

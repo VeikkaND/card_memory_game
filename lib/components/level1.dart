@@ -2,10 +2,7 @@ import 'package:card_memory_game/config.dart';
 import 'package:flame/components.dart';
 import '../memoryGame.dart';
 import 'package:flutter/material.dart';
-import '../views/levelScreen.dart';
 import 'package:flame/camera.dart';
-import 'package:flame/game.dart';
-import 'package:get/get.dart';
 import 'card.dart' as game;
 
 class Level1 extends World with HasGameRef<MemoryGame> {

@@ -55,6 +55,7 @@ class Card extends RectangleComponent
     }
   }
 
+  // show pairs on the back of cards
   @override
   Future<void> onLoad() async {
     await add(

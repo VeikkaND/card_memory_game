@@ -21,6 +21,7 @@ class WinPopup extends StatelessWidget {
                 "You win!",
                 style: TextStyle(fontSize: 40.0),
               ),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () => Get.to(
                   ResultScreen(correct: correct, wrong: wrong)
