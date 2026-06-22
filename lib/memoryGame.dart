@@ -2,9 +2,12 @@ import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'config.dart';
 import 'components/components.dart';
+import 'package:get/get.dart';
+import 'controllers/levelController.dart';
 
 class MemoryGame extends FlameGame {
   final int level;
+  final levelController = Get.find<LevelController>();
 
   MemoryGame(this.level);
 
@@ -12,6 +15,7 @@ class MemoryGame extends FlameGame {
   var correctGuesses = 0;
   var wrongGuesses = 0;
   var pairsLeft = 0;
+  var gameFinished = false;
   
   @override
   Future<void> onLoad() async {
@@ -40,9 +44,21 @@ class MemoryGame extends FlameGame {
     await add(camera);
   }
 
+  @override
+  void update(double dt) {
+    super.update(dt);
+
+    if(pairsLeft <= 0 && !gameFinished) {
+      gameFinished = true;
+      levelController.completeLevel(level);
+      overlays.add("win");
+    }
+  }
+
   void resetLevel() {
-    selectedCard == null;
+    selectedCard = null;
     correctGuesses = 0;
     wrongGuesses = 0;
+    gameFinished = false;
   }
 }

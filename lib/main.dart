@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'views/startScreen.dart';
 import 'package:get/get.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'controllers/levelController.dart';
+import 'services/levelService.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  await Hive.openBox("storage");
+  Get.lazyPut<LevelService>(() => LevelService());
+  Get.lazyPut<LevelController>(() => LevelController());
+
   runApp(
     GetMaterialApp(
       home: StartScreen()

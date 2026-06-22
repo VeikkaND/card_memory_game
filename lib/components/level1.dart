@@ -9,8 +9,6 @@ import 'package:get/get.dart';
 import 'card.dart' as game;
 
 class Level1 extends World with HasGameRef<MemoryGame> {
-  var gameFinished = false;
-
   @override
   Future<void> onLoad() async {
     gameRef.pairsLeft = 3;
@@ -24,15 +22,5 @@ class Level1 extends World with HasGameRef<MemoryGame> {
       game.Card(number: 3, position: spawnPoints[2], color: Colors.pink),
       game.Card(number: 3, position: spawnPoints[3], color: Colors.pink),
     ]);
-  }
-
-  @override
-  void update(double dt) {
-    super.update(dt);
-
-    if(gameRef.pairsLeft <= 0 && !gameFinished) {
-      gameFinished = true;
-      gameRef.overlays.add("win");
-    }
   }
 }
